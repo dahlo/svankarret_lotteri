@@ -1,6 +1,6 @@
 # Svankärrets lotteri
 
-På senaste föreningsstämman hittades inga frivilliga som kunde ta sig an uppdraget som valberedning. Det beslutades istället att uppdraget ska lottas ut bland de medlemmar i föreningen som inte redan har ett pågågende återkommande uppdrag i föreningen. Enklast hade varit att ha en skål med lappar med alla husnummer och sen dra två stycken. Det kräver dock en del förberedelser som tar mer tid än man har under en pågående stämma så lotteriet sker nu i efterhand. 
+På senaste föreningsstämman hittades inga frivilliga som kunde ta sig an uppdraget som valberedning. Det beslutades istället att uppdraget ska lottas ut bland de medlemmar i föreningen som inte redan har ett pågågende återkommande uppdrag i föreningen. Enklast hade varit att ha en skål med lappar med alla husnummer och sen dra två stycken. Det kräver dock en del förberedelser som tar mer tid än man har under en pågående stämma så lotteriet sker nu i efterhand. För att se listan på hushåll som är med i dragningen, kolla i filen [lotteri.py](https://github.com/dahlo/svankarret_lotteri/blob/main/lotteri.py) och leta efter den långa listan med husnummer. Alla de husnummer som inte har en kommentar efter sig är med i dragningen.
 
 Att lotta fram något utan vittnen på ett sätt som är upprepningsbart och verifierbart kräver lite mer än att bara be ett datorprogram slumpa fram två husnummer. Det måste ju vara samma sannolikhet att alla hus väljs, och ingen ska kunna påverka utfallet av lotteriet i förväg.
 
