@@ -1,55 +1,49 @@
 #!/usr/bin/env python3
 
-from random import Random
+import random
 import sys
+import argparse
+import pdb
+from pprint import pprint
 
+# hämta argument
+parser = argparse.ArgumentParser(description='Lotta fram husnummer.')
+parser.add_argument('-s', '--seed', type=str, required=True, help='Hashsumman för ett Bitcoin block. (hexadecimalt)')
+parser.add_argument('-n', '--n_numbers', type=int, default=1, help='Antal husnummer som ska lottas fram.')
+args = parser.parse_args()
 
-
-# felmeddelande
-usage = f"""
-Använding:
-python3 {sys.argv[0]} [<antal husnummer att slumpa>]
-ex.
-python3 {sys.argv[0]} 2
-"""
 
 # ta in argument
-antal_husnummer = sys.argv[1]
+antal_husnummer = args.n_numbers
 
-# sätt seed till det heltal som mosvaras av ett bitcoin-blocks hashsumma
-seed = 42
-
-# slumpa fram ett heltal baserat på ovanstående seed
-rand = Random(seed)
-heltal = rand.getrandbits(64)
 
 # definiera listan av husnummer att välja mellan
 husnummer = [
-            "6A",
+#            "6A", # sköter uthyrning av föreningshus
             "6B",
-            "6C",
+#            "6C", # avgående valberedning
             "6D",
-            "6E",
+#            "6E", # med i styrelsen
             "6F",
-            "6G",
-            "6H",
+#            "6G", # avgående valberedning
+#            "6H", # med i styrelsen
             "6J",
-            "6K",
+#            "6K", # vattenavläsning
             "6L",
             "6M",
             "6P",
             "6R",
             "6S",
-            "6T",
-            "6U",
-            "6V",
-            "8A",
+#            "6T", # med i styrelsen
+#            "6U", # med i styrelsen
+#            "6V", # revisor
+#            "8A", # med i styrelsen
             "8B",
-            "8C",
+#            "8C", # vattenavläsning
             "8D",
             "8E",
             "8F",
-            "8G",
+#            "8G", # revisor, snögruppen
             "8H",
             "8J",
             "8K",
@@ -58,12 +52,45 @@ husnummer = [
             "8P",
             "8R",
             "8S",
-            "8T",
+#            "8T", # snögruppen
             ]
 
-# översätt det slumpade heltalet till ett nummer i listan av husnummer
+# konvertera det hexadecimala talet till ett vanligt heltal i bas 10
+seed = int(args.seed, 16)
+
+# använd denna seed för slumpgenereringen
+random.seed(seed)
+
+# slumpa fram så många husnummer som efterfrågats
+valda_husnummer = random.sample(husnummer, antal_husnummer)
+
+# skriv ut resultatet
+print(f"Valda husnummer: {', '.join(valda_husnummer)}")
 
 
 
+# tester som kan köras manuellt
+def distribution(l, n=1, rep=1000):
+    """
+    Test run and print distribution. Takes list l, selects n elements from the list, repeat this rep times.
+    Counts the number of times the elements in list l are selected and prints the distribution.
+    """
 
+    # init empty counter dict
+    counter = { key:0 for key in l }
+
+    # run the sampling n times
+    for i in range(rep):
+
+        # set a new random seed
+        random.seed()
+
+        for winner in random.sample(l, n):
+            counter[winner] += 1
+
+
+    pprint(counter)
+
+
+#pdb.set_trace()
 
