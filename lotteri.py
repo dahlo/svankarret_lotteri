@@ -8,7 +8,7 @@ from pprint import pprint
 
 # hämta argument
 parser = argparse.ArgumentParser(description='Lotta fram husnummer.')
-parser.add_argument('-s', '--seed', type=str, required=True, help='Hashsumman för ett Bitcoin block. (hexadecimalt)')
+parser.add_argument('-s', '--seed', type=str, required=True, help='Hashsumman för en Bitcoin block-header. (hexadecimalt)')
 parser.add_argument('-n', '--n_numbers', type=int, default=1, help='Antal husnummer som ska lottas fram.')
 args = parser.parse_args()
 
@@ -85,10 +85,13 @@ def distribution(l, n=1, rep=1000):
         # set a new random seed
         random.seed()
 
+        # loop over the picked winners
         for winner in random.sample(l, n):
+
+            # add 1 to their winner count
             counter[winner] += 1
 
-
+    # print the counter
     pprint(counter)
 
 
