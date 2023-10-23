@@ -19,8 +19,10 @@ python3 lotteri.py -s 00000000000000000001ebe00575c3f63f90172fa89f121b2996e561b0
 Valda husnummer: 8K, 8M
 ```
 
-Om tidpunkten för lotteriet bestäms i förväg så är det utom alls kontroll vilket frövärde som väljs, och alla som vill kan köra programmet och validera resultatet.
+Om tidpunkten för lotteriet bestäms i förväg så är det utom alls kontroll vilket frövärde som väljs, och alla som vill kan köra programmet och validera resultatet. Python 3.8.10 kommer användas vid körningen.
 
 Men nästa stämma kör vi på en skål med lappar va? :)
+
+
 
 
