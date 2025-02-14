@@ -10,18 +10,26 @@ Så återupprepbarheten går alltså att lösa genom att man sätter ett frövä
 
 Ett sätt att få slumpmässiga frövärden som inte kan förutsägas är att titta på Bitcoins blockkedja, och specifikt på det som kallas för [hashen](https://sv.wikipedia.org/wiki/Hashfunktion) för [block-headern](https://learnmeabitcoin.com/technical/block-header). Detta är ett hexadecimalt tal som inte går att förutsäga, dvs precis vad vi behöver för att välja ett bra frövärde för vårt lotteri. Tanken är då att man i förväg bestämmer en tidpunkt en par dagar framåt i tiden och att man tar det första blocket som produceras efter den tidpunkten och använder dess block-header-hash som frövärde.
 
-Som exempel kan man titta på de [senaste producerade blocken](https://blockexplorer.one/bitcoin/mainnet) och ta hashsumman för det senaste blocket, `00000000000000000001ebe00575c3f63f90172fa89f121b2996e561b0d0bb46` just nu, och köra lotteri-programmet med den och be programmet generera 2 husnummer.
+Som exempel kan man titta på de [senaste producerade blocken](https://blockexplorer.one/bitcoin/mainnet) och ta hashsumman för det senaste blocket, `00000000000000000001ebe00575c3f63f90172fa89f121b2996e561b0d0bb46` just nu, och köra lotteri-programmet med den och be programmet generera 2 husnummer. För att hitta tidigare block baserat på en tid så kan man använda verktyg som [Block time calculator](https://www.blocktrainer.de/en/tools-services/block-time-calculator).
 
 ```bash
-python3 lotteri.py -s 00000000000000000001ebe00575c3f63f90172fa89f121b2996e561b0d0bb46 -n 2
+# ladda ner skriptet
+git clone https://github.com/dahlo/svankarret_lotteri.git
+cd svankarret_lotteri
+
+# kör skriptet
+python3 lotteri.py -s 00000000000000000002297f1395a67078f17e78d8eb4a13800b1d4aa3f50088 -n 2
 
 # vilket ger detta svar:
 Valda husnummer: 8K, 8M
 ```
 
-Om tidpunkten för lotteriet bestäms i förväg så är det utom allas kontroll vilket frövärde som väljs, och alla som vill kan köra programmet och validera resultatet. Python 3.8.10 kommer användas vid körningen.
+Om tidpunkten för lotteriet bestäms i förväg så är det utom allas kontroll vilket frövärde som väljs, och alla som vill kan köra programmet och validera resultatet. Python 3.8.10 kommer användas vid körningen. Se nedan för ett exemple på hur man kör det via [Docker](https://www.docker.com/) så att man enkelt kan välja vilken version man kör.
 
-Men nästa stämma kör vi på en skål med lappar va? :)
+```bash
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3.8.10 python lotteri.py -s "00000000000000000002297f1395a67078f17e78d8eb4a13800b1d4aa3f50088" -n 2
+```
+
 
 
 
