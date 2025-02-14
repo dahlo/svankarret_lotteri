@@ -96,4 +96,4 @@ def distribution(l, n=1, rep=1000):
 
 
 #pdb.set_trace()
-
+#distribution(husnummer, n=antal_husnummer, rep=100000)
