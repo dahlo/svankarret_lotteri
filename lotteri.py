@@ -8,7 +8,7 @@ from pprint import pprint
 
 # hämta argument
 parser = argparse.ArgumentParser(description='Lotta fram husnummer.')
-parser.add_argument('-s', '--seed', type=str, required=True, help='Hashsumman för en Bitcoin block-header. (hexadecimalt)')
+parser.add_argument('-s', '--seed', type=str, required=True, help='Hashsumman för en Bitcoin block-header.')
 parser.add_argument('-n', '--n_numbers', type=int, default=1, help='Antal husnummer som ska lottas fram.')
 args = parser.parse_args()
 
@@ -21,11 +21,11 @@ antal_husnummer = args.n_numbers
 husnummer = [
 #            "6A", # sköter uthyrning av föreningshus
             "6B",
-#            "6C", # avgående valberedning
+            "6C",
             "6D",
 #            "6E", # med i styrelsen
             "6F",
-#            "6G", # avgående valberedning
+            "6G",
 #            "6H", # med i styrelsen
             "6J",
 #            "6K", # vattenavläsning
@@ -33,9 +33,9 @@ husnummer = [
             "6M",
             "6P",
             "6R",
-            "6S",
+#            "6S", # avgående styrelsemedlem
 #            "6T", # med i styrelsen
-#            "6U", # med i styrelsen
+#            "6U", # snögruppen
 #            "6V", # revisor
 #            "8A", # med i styrelsen
             "8B",
@@ -43,16 +43,16 @@ husnummer = [
             "8D",
             "8E",
             "8F",
-#            "8G", # revisor, snögruppen
+#            "8G", # revisor
             "8H",
-            "8J",
-            "8K",
-            "8L",
+#            "8J", # med i styrelsen, avgående valberedning
+#            "8K", # odlingslådorna
+#            "8L", # odlingslådorna
             "8M",
             "8P",
-            "8R",
+#            "8R", # avgående valberedning
             "8S",
-#            "8T", # snögruppen
+#            "8T", # snögruppen, beskär äppelträden
             ]
 
 # konvertera det hexadecimala talet till ett vanligt heltal i bas 10
